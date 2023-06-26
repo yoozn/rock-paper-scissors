@@ -15,61 +15,49 @@ function getComputerChoice() {
 
 
 function singleRound(playerSelection, computerSelection) {
-    //convert selections to lowercase
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
-    //capitalize first letter of selections
-    playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1);
-    computerSelection = computerSelection[0].toUpperCase() + computerSelection.slice(1);
-
+    //if player and computer pick same object
     if (playerSelection == computerSelection) {
-        console.log("Its a tie! You both chose " + playerSelection);
         return 0;
-    } else if (playerSelection == 'Rock') {
-        if (computerSelection == 'Paper') {
-            console.log("You lose! Paper beats Rock!");
-            return -1;
-        }
-        else {
-            console.log("You win! Rock beats Scissors!");
-            return 1;
-        }
-    } else if (playerSelection == 'Paper') {
-        if (computerSelection == 'Scissors') {
-            console.log("You lose! Scissors beats Paper!");
-            return -1;
-        } else {
-            console.log("You win! Paper beats Rock!");
-            return 1;
-        }
-    } else {
-        if (computerSelection == 'Rock') {
-            console.log("You lose! Rock beats Scissors!");
-            return -1;
-        } else {
-            console.log("You win! Scissors beats Paper!");
-            return 1;
-        }
-    }
+    //if player picks the winning object
+    } else if ((playerSelection == "Rock" && computerSelection == "Scissors") || 
+               (playerSelection == "Scissors" && computerSelection == "Paper") ||
+               (playerSelection == "Paper" && computerSelection == "Rock")) {
+                return 1;
+    //if player picks losing object
+    } else if ((playerSelection == "Rock" && computerSelection == "Paper") ||
+               (playerSelection == "Scissors" && computerSelection == "Rock") ||
+               (playerSelection == "Paper" && computerSelection == "Scissors")) {
+                return -1;
+               }
+                 
 }
 
 function game() {
-    round = 1;
+    round = 0;
     playerScore = 0;
     computerScore = 0;
     tieScore = 0;
-    while (round < 6) {
+    while (round < 5) {
+        round++;
         playerSelection = prompt("Rock, paper or scissors?");
         computerSelection = getComputerChoice();
+        //convert selections to lowercase
+        playerSelection = playerSelection.toLowerCase();
+        computerSelection = computerSelection.toLowerCase();
+        //capitalize first letter of selections
+        playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1);
+        computerSelection = computerSelection[0].toUpperCase() + computerSelection.slice(1);
         result = singleRound(playerSelection, computerSelection);
         if (result == 1) {
             playerScore++;
+            console.log(`You win! ${playerSelection} beats ${computerSelection}`);
         } else if (result == 0) {
             tieScore++;
+            console.log(`Tie. You both chose ${playerSelection}`);
         } else if (result == -1) {
             computerScore++;
+            console.log(`You lose. ${computerSelection} beats ${playerSelection}`);
         }
-        round++;
     }
     console.log(`You won: ${playerScore}/${round}, the computer won ${computerScore}/${round}, and there were ${tieScore} ties.`);
 }
