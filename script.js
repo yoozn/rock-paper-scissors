@@ -1,14 +1,14 @@
 function getComputerChoice() {
-    randomNum = Math.floor(Math.random() * 3 + 1);
+    let randomNum = Math.floor(Math.random() * 3 + 1);
 
     if (randomNum == 1) {
-        compChoice = 'Rock';
+        let compChoice = 'Rock';
     }
     else if (randomNum == 2) {
-        compChoice = 'Paper';
+        let compChoice = 'Paper';
     }
     else if (randomNum == 3) {
-        compChoice = 'Scissors';
+        let compChoice = 'Scissors';
     }
     return compChoice;
 }
@@ -33,10 +33,10 @@ function singleRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    round = 0;
-    playerScore = 0;
-    computerScore = 0;
-    tieScore = 0;
+    let round = 0;
+    let playerScore = 0;
+    let computerScore = 0;
+    let tieScore = 0;
     while (round < 5) {
         round++;
         playerSelection = prompt("Rock, paper or scissors?");
