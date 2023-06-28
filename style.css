@@ -1,0 +1,98 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #070022;
+}
+
+.container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img-div {
+    display: flex;
+    flex-direction: column;
+    border: .4em solid rgb(255, 255, 255);
+    border-radius: 4em;
+    min-width: 15em;
+    min-height: 20em;
+    justify-content: space-between;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+#left-img,
+#right-img {
+    flex: 0;
+}
+
+.img-text {
+    text-align: center;
+    font-size: 1.8em;
+    padding: .5em;
+}
+
+.inner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4em;
+}
+
+#title {
+    font-size: 40px;
+    margin-top: 1em;
+    font-weight: 500;
+    margin-bottom: .5em;
+}
+
+#score-container {
+    display:flex;
+    justify-content: space-between;
+    font-size: 5em;
+    margin-top: .2em;
+    min-width: 10.3em;
+}
+
+#user-score,
+#computer-score {
+    font-size: 3em;
+    margin-top: .2em
+}
+
+.outer-score-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1em;
+}
+
+#results {
+    margin-top: 1.5em;
+    font-size: 2em;
+}
+
+.button-container {
+    display:flex;
+    flex-direction: column;
+}
+
+button {
+    color: #070022;
+    font-weight: bold;
+    font-size: 1.5em;
+    min-width: 13em;
+    min-height: 3em;
+    margin-bottom: .5em;
+    border-radius: 1.2em;
+    border: rgb(255, 145, 0) solid .25em;
+    flex: auto;
+}
